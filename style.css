@@ -1,0 +1,147 @@
+@import url("https://fonts.googleapis.com/css2?family=Baloo+Bhaina+2&family=Poppins&display=swap");
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+html {
+  font-family: "Baloo Bhaina 2", cursive;
+  font-family: "Poppins", sans-serif;
+}
+nav ul {
+  list-style-type: none;
+}
+.win-gif{
+  background-image: url('congrats.gif');
+  background-attachment:fixed;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+nav {
+  height: 65px;
+  background-color: rgb(22, 20, 20);
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+nav ul li {
+  font-weight: bold;
+  font-size: 25px;
+}
+.gameContainer {
+  display: flex;
+  margin: auto;
+  justify-content: space-around;
+  margin-top: 10px;
+  flex-wrap: wrap;
+  position: relative;
+}
+
+.container {
+  display: grid;
+  grid-template-rows: repeat(3, 10rem);
+  grid-template-columns: repeat(3, 10rem);
+  position: relative;
+}
+
+.container .box {
+  border: 2px solid black;
+  font-size: 8rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  
+}
+.box:hover {
+  background-color: rgb(248, 245, 245);
+}
+.gameInfo {
+  padding: 0 35px;
+  font-family: "Baloo Bhaina 2", cursive;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 1rem;
+  width: 40%;
+}
+.line{
+  background-color: blue;
+  height: 3px;
+  width: 0;
+  position: absolute;
+  transition:width 1s  ease-in-out;
+
+}
+.info {
+  font-size: 8vh;
+  font-weight: bold;
+}
+
+.br-0 {
+  border-right: 0 !important;
+}
+.bt-0 {
+  border-top: 0 !important;
+}
+.bb-0 {
+  border-bottom: 0 !important;
+}
+.bl-0 {
+  border-left: 0 !important;
+}
+.buttonDiv{
+  margin: 1rem;
+
+}
+.buttonDiv button{
+  font-size: 1.2rem;
+  padding: 8px 20px 8px 20px;
+  background-color: rgb(22, 20, 20);
+  color: #ffffff;
+  border: 2px solid black;
+  cursor: pointer;
+  border-radius: 5px;
+  font-weight: bold;
+  transition: color .3s ease-in-out;
+  margin-top: 1rem;
+
+}
+.buttonDiv button:hover{
+  background-color: white;
+  color: rgb(22, 20, 20);
+
+}
+
+@media screen and (max-width :600px) {
+  .container {
+
+    grid-template-rows: repeat(3, 30vw);
+    grid-template-columns: repeat(3, 30vw);
+}
+.gameInfo{
+  width: 100%;
+}
+
+.container .box{
+  font-size: 30vw;
+}
+nav ul li {
+  font-weight: bold;
+  font-size: 6.6vw;
+}
+.gameInfo{
+  padding: 0;
+  margin-top: .8rem;
+}
+.info {
+  font-size: 13vw;
+}
+
+.buttonDiv button{
+  font-size: 5.8vw;
+}
+
+
+}
