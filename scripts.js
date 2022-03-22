@@ -24,9 +24,10 @@ const checkWin = ()=>{
             gameOver =true;
             document.getElementsByClassName('infoDiv')[0].innerHTML = `
             <span class="info">
-                         <span class='win-gif'>${boxText[e[1]].innerText} Win The Game </span>
+                         <span class='win-gif'><span class = 'winSpan'>${boxText[e[1]].innerText} </span>Win The Game </span>
             </span>
             `;
+            changeColor(boxText[e[1]].innerText);
             document.querySelector('.line').style.width = '100%';
             if (window.innerWidth > 600) {
 
@@ -36,6 +37,11 @@ const checkWin = ()=>{
                 document.querySelector('.line').style.transform = `translate(${e[6]}vw, ${e[7]}vw) rotate(${e[8]}deg)`;
             }
             gameoverMusic.play();
+            alertDiv.style.left = '0';
+
+            setTimeout(() => {
+                reset.click();
+            }, 20000);
        
         }
 
@@ -112,4 +118,19 @@ reset.addEventListener('click',()=>{
     </span>
     `;
     document.querySelector('.line').style.width = '0';
+    alertDiv.style.left = '-90rem';
+
 })
+
+function changeColor(w){
+    if (w === 'X'){
+        document.querySelector('.winSpan').style.color = 'red';
+        document.querySelector('.line').style.backgroundColor = 'red';
+    }
+    else{
+        document.querySelector('.winSpan').style.color = 'green';
+        document.querySelector('.line').style.backgroundColor = 'green';
+    }
+}
+
+const alertDiv = document.querySelector('.alertDiv');
