@@ -57,16 +57,17 @@
           <button id="reset">Reset Game</button>
         </div>
       </div>
+      <fb:login-button scope="public_profile,email" onlogin="checkLoginState();"></fb:login-button>
     </div>
     <script src="scripts.js"></script>
     
 <script>
   window.fbAsyncInit = function() {
     FB.init({
-      appId      : '{your-app-id}',
+      appId      : '383247326736553',
       cookie     : true,
       xfbml      : true,
-      version    : '{api-version}'
+      version    : 'v13.0'
     });
       
     FB.AppEvents.logPageView();   
@@ -85,10 +86,7 @@ FB.getLoginStatus(function(response) {
     statusChangeCallback(response);
 });
 
-<fb:login-button 
-  scope="public_profile,email"
-  onlogin="checkLoginState();">
-</fb:login-button>
+
 
 function checkLoginState() {
   FB.getLoginStatus(function(response) {
