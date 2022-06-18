@@ -22,6 +22,7 @@ const checkWin = () => {
     ];
     wins.forEach((e, i) => {
         if ((boxText[e[0]].innerText === boxText[e[1]].innerText) && (boxText[e[1]].innerText === boxText[e[2]].innerText) && (boxText[e[0]].innerText !== '')) {
+            countDown();
             gameOver = true;
             document.getElementsByClassName('infoDiv')[0].innerHTML = `
             <span class="info">
@@ -38,19 +39,14 @@ const checkWin = () => {
                 document.querySelector('.line').style.transform = `translate(${e[6]}vw, ${e[7]}vw) rotate(${e[8]}deg)`;
             }
             gameoverMusic.play();
-            alertDiv.style.left = '0';
-            setTimeout(() => {
-                console.log(isReseted);
-                if (isReseted == false) {
-                    reset.click();
-                }
-            }, 20000);
+            showAlert()
 
         }
 
 
 
     });
+
     if (gameOver === false) {
         Array.from(boxText).forEach((e, i) => {
             if (e.innerText == '') {
@@ -60,23 +56,33 @@ const checkWin = () => {
 
         if (isFull !== false) {
             document.getElementsByClassName('infoDiv')[0].innerHTML = `
-        <span class="info">
-                     <span class=''>Game Tie</span>
-        </span>
-        `;
+            <span class="info">
+            <span class=''>Game Tie</span>
+            </span>
+            `;
+            showAlert();
         }
     }
 
 }
 
+function  showAlert(){
+    alertDiv.style.left = '0';
+    setTimeout(() => {
+
+        if (isReseted == false) {
+            reset.click();
+        }
+    }, 20000);
+}
+
 // game logic start
-spanTag = document.getElementsByClassName('info')[0].getElementsByTagName('span')[0];
+let spanTag = document.getElementsByClassName('info')[0].getElementsByTagName('span')[0];
 
 let boxes = document.getElementsByClassName('box');
 Array.from(boxes).forEach(element => {
     let boxText = element.querySelector('.boxText');
     if (gameOver === false) {
-
 
         element.addEventListener('click', () => {
 
@@ -121,9 +127,22 @@ reset.addEventListener('click', () => {
     </span>
     `;
     document.querySelector('.line').style.width = '0';
-    alertDiv.style.left = '-90rem';
+    alertDiv.style.left = '-190rem';
     isReseted = true;
+    spanTag = document.getElementsByClassName('info')[0].getElementsByTagName('span')[0];
+
 })
+
+const seconds = document.getElementById('seconds');
+function countDown(){
+    let i=20;
+    setInterval(() => {
+        if (i >= 0){
+            seconds.innerText = i;
+            i--;
+        }
+    }, 1000);
+}
 
 function changeColor(w) {
     if (w === 'X') {

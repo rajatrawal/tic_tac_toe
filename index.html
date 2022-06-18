@@ -14,7 +14,7 @@
       </ul>
     </nav>
     <div class="alertDiv">
-      <strong> The Game Will Be Reseted After 20 Seconds... </strong>
+      <strong> The Game Will Be Reseted After <span id="seconds">20</span>  Seconds... </strong>
     </div>
     <div class="gameContainer">
       <div class="container">
@@ -59,76 +59,11 @@
       </div>
 
   
-
-
-
-
-
-      
       
     </div>
           
-    <div id="spinner"
-    style="
-        background: #4267b2;
-        border-radius: 5px;
-        color: white;
-        height: 40px;
-        text-align: center;
-        width: 250px;">
-    Loading
-    <div
-    class="fb-login-button"
-    data-max-rows="1"
-    data-size="large"
-    data-button-type="continue_with"
-    data-use-continue-as="true"
-    ></div>
-</div>    
-    <script src="scripts.js"></script>
-    
-<script>
-  window.fbAsyncInit = function() {
-    FB.init({
-      appId      : '383247326736553',
-      cookie     : true,
-      xfbml      : true,
-      version    : 'v13.0'
-    });
-      
-    FB.AppEvents.logPageView();   
-      
-  };
-
-  (function(d, s, id){
-     var js, fjs = d.getElementsByTagName(s)[0];
-     if (d.getElementById(id)) {return;}
-     js = d.createElement(s); js.id = id;
-     js.src = "https://connect.facebook.net/en_US/sdk.js";
-     fjs.parentNode.insertBefore(js, fjs);
-   }(document, 'script', 'facebook-jssdk'));
    
-
-//    FB.getLoginStatus(function(response) {
-//     statusChangeCallback(response);
-//     if(response['status']!='connected'){
-//       FB.login();
-//     }
-// });
-
-
-function checkLoginState() {
-  FB.getLoginStatus(function(response) {
-    statusChangeCallback(response);
-  });
-}
-var finished_rendering = function() {
-  console.log("finished rendering plugins");
-  var spinner = document.getElementById("spinner");
-  spinner.removeAttribute("style");
-  spinner.removeChild(spinner.childNodes[0]);
-}
-FB.Event.subscribe('xfbml.render', finished_rendering);
-</script>
-  </body>
+    <script src="scripts.js"></script>
+  
+</body>
 </html>

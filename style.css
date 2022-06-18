@@ -36,8 +36,8 @@ nav ul li {
   font-size: 1.1rem;
   text-align: center;
   position: relative;
-  left: -90rem;
-  transition: all .8s ease-out;
+  left: -190rem;
+  transition: all 2s ease-out;
 }
 .gameContainer {
   display: flex;
