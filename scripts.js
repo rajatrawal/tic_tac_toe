@@ -23,7 +23,6 @@ const checkWin = () => {
     ];
     wins.forEach((e, i) => {
         if ((boxText[e[0]].innerText === boxText[e[1]].innerText) && (boxText[e[1]].innerText === boxText[e[2]].innerText) && (boxText[e[0]].innerText !== '')) {
-            countDown();
             gameOver = true;
             document.getElementsByClassName('infoDiv')[0].innerHTML = `
             <span class="info">
@@ -75,6 +74,8 @@ function  showAlert(){
             reset.click();
         }
     }, 20000);
+    countDown();
+
 }
 
 // game logic start
