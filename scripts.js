@@ -1,6 +1,7 @@
 let music = new Audio('music.mp3');
 let turnMusic = new Audio('ting.mp3');
 let gameoverMusic = new Audio('gameover.mp3');
+music.play();
 let turn = 'X';
 let gameOver = false;
 let isFull = false;
