@@ -77,7 +77,7 @@ nav ul li {
   width: 40%;
 }
 .line{
-  height: 3px;
+  height: 4px;
   width: 0;
   position: absolute;
   transition:width 1s  ease-in-out;
