@@ -1,11 +1,11 @@
 let music = new Audio('music.mp3');
 let turnMusic = new Audio('ting.mp3');
 let gameoverMusic = new Audio('gameover.mp3');
-music.play();
 let turn = 'X';
 let gameOver = false;
 let isFull = false;
 let isReseted = false;
+
 // function to change turn 
 const changeTurn = () => { return turn === 'X' ? 'O' : 'X' };
 // function to check win 
@@ -73,7 +73,7 @@ function  showAlert(){
         if (isReseted == false) {
             reset.click();
         }
-    }, 20000);
+    },5000);
     countDown();
 
 }
@@ -85,9 +85,9 @@ let boxes = document.getElementsByClassName('box');
 Array.from(boxes).forEach(element => {
     let boxText = element.querySelector('.boxText');
     if (gameOver === false) {
-
         element.addEventListener('click', () => {
 
+        
             if (boxText.innerText === '') {
                 boxText.innerText = turn;
                 boxText.style.color = getColor(turn);
@@ -130,18 +130,25 @@ reset.addEventListener('click', () => {
     `;
     document.querySelector('.line').style.width = '0';
     alertDiv.style.left = '-190rem';
-    isReseted = true;
     spanTag = document.getElementsByClassName('info')[0].getElementsByTagName('span')[0];
+    isReseted = true;
+    setTimeout(() => {
+    isReseted = false;
+    }, 5000);
 
 })
 
 const seconds = document.getElementById('seconds');
 function countDown(){
-    let i=20;
+    let i=5;
+
     setInterval(() => {
-        if (i >= 0){
+        if (i >= 0 && isReseted == false){
             seconds.innerText = i;
             i--;
+        }
+        else{
+            i = -1;
         }
     }, 1000);
 }
@@ -158,3 +165,4 @@ function changeColor(w) {
 }
 
 const alertDiv = document.querySelector('.alertDiv');
+
