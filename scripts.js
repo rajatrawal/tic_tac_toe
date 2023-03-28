@@ -10,6 +10,7 @@ let isReseted = false;
 const changeTurn = () => { return turn === 'X' ? 'O' : 'X' };
 // function to check win 
 const checkWin = () => {
+    music.play();
     boxText = document.getElementsByClassName('boxText');
     let wins = [
         [0, 1, 2, 0, 5, 0, 0, 15, 0],
@@ -165,4 +166,3 @@ function changeColor(w) {
 }
 
 const alertDiv = document.querySelector('.alertDiv');
-
